@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { ComponentPropsWithoutRef } from "react";
 
 export type MdxPreProps = ComponentPropsWithoutRef<"pre"> & {
-  "data-language": string;
+  "data-language"?: string; // Rend la propriété optionnelle pour plus de flexibilité
   "data-file-name"?: string;
 };
 
