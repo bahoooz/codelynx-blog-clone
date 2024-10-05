@@ -1,7 +1,7 @@
 import rehypeShiki from "@shikijs/rehype";
-import type { PluggableList } from "unified";
 import { transformerNotationHighlight } from "@shikijs/transformers";
 import type { ShikiTransformer } from "shiki/core";
+import type { PluggableList } from "unified";
 
 const getFileName = (raw?: string): string | null => {
   if (!raw) return null;

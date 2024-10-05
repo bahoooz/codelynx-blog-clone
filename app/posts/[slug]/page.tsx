@@ -5,8 +5,9 @@ import React from "react";
 import { ViewCount } from "./ViewCount";
 import { Metadata } from "next";
 
-export const dynamic = "force-static";
+export const dynamic = "force-static"; // Ce paramètre force le rendu statique
 
+// Génère les métadonnées pour chaque article
 export const generateMetadata = async (props: {
   params: { slug: string };
 }): Promise<Metadata> => {
@@ -15,13 +16,13 @@ export const generateMetadata = async (props: {
     return {
       title: "404 - Page Not Found",
       description: "Page not found",
-    }
+    };
   }
 
   return {
     title: post.title,
     description: post.description,
-  }
+  };
 };
 
 export default async function RoutePage(props: { params: { slug: string } }) {
@@ -30,6 +31,7 @@ export default async function RoutePage(props: { params: { slug: string } }) {
   if (!post) {
     notFound();
   }
+
   return (
     <div className="prose prose-sm lg:prose-lg">
       <div className="flex items-center gap-2">
