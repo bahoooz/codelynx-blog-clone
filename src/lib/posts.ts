@@ -13,7 +13,7 @@ const PostSchema = z.object({
 });
 
 // Ajout de `content` au type `Post`
-type Post = z.infer<typeof PostSchema> & { slug: string; content: string };
+export type Post = z.infer<typeof PostSchema> & { slug: string; content: string };
 
 export const getPosts = async () => {
   const files = await fs.readdir(postsDirectory);
