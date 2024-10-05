@@ -8,10 +8,10 @@ export const Footer = () => {
         <span className="text-primary">.dev</span>
       </p>
       <div className="ml-auto"></div>
-      <Link href="/about" className="text-primary">
+      <Link href="/" className="text-primary">
         About
       </Link>
-      <Link href="/contact" className="text-primary">
+      <Link href="/" className="text-primary">
         Contact
       </Link>
     </footer>
