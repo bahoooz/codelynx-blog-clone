@@ -1,4 +1,4 @@
-// import { Mdx } from "@/features/mdx/Mdx";
+import { Mdx } from "@/features/mdx/Mdx";
 import { getPost } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import React from "react";
@@ -44,7 +44,7 @@ export default async function RoutePage(props: { params: { slug: string } }) {
         {/* <ViewCount slug={props.params.slug} /> */}
       </div>
       <h1>{post.title}</h1>
-      {/* <Mdx>{post.content}</Mdx> */}
+      <Mdx>{post.content}</Mdx>
     </div>
   );
 }
