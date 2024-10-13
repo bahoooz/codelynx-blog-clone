@@ -1,21 +1,24 @@
-import { Mdx } from "@/features/mdx/Mdx";
+// import { Mdx } from "@/features/mdx/Mdx";
 import { getPost } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import React from "react";
-import { ViewCount } from "./ViewCount";
+// import { ViewCount } from "./ViewCount";
 import { Metadata } from "next";
 
 export const dynamic = "force-static"; // Ce paramètre force le rendu statique
 
 // Génère les métadonnées pour chaque article
-export const generateMetadata = async (props: {
+export const generateMetadata = async ({
+  params,
+}: {
   params: { slug: string };
 }): Promise<Metadata> => {
-  const post = await getPost(props.params.slug);
+  const post = await getPost(params.slug);
+
   if (!post) {
     return {
       title: "404 - Page Not Found",
-      description: "Page not found",
+      description: "This page does not exist.",
     };
   }
 
@@ -29,7 +32,7 @@ export default async function RoutePage(props: { params: { slug: string } }) {
   const post = await getPost(props.params.slug);
 
   if (!post) {
-    notFound();
+    return notFound(); // Rediriger vers la page 404
   }
 
   return (
@@ -38,10 +41,10 @@ export default async function RoutePage(props: { params: { slug: string } }) {
         <p className="text-xs text-muted-foreground">
           {new Date(post.publishedAt).toLocaleDateString()}
         </p>
-        <ViewCount slug={props.params.slug} />
+        {/* <ViewCount slug={props.params.slug} /> */}
       </div>
       <h1>{post.title}</h1>
-      <Mdx>{post.content}</Mdx>
+      {/* <Mdx>{post.content}</Mdx> */}
     </div>
   );
 }
